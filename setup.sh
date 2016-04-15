@@ -18,10 +18,11 @@ read git_user_email
 # mount /dev/sda1 /mnt/usb
 
 # Install and run BitTorrent Sync
-mkdir ~/.btsync && cd ~/.btsync
-wget https://download-cdn.getsync.com/stable/linux-arm/BitTorrent-Sync_arm.tar.gz
-tar -xfv BitTorrent-Sync_arm.tar.gz
+mkdir ~/.btsync
+curl -o ~/.btsync/BitTorrent-Sync_arm.tar.gz https://download-cdn.getsync.com/stable/linux-arm/BitTorrent-Sync_arm.tar.gz
+tar -xfv ~/.btsync/BitTorrent-Sync_arm.tar.gz
 cp btsync /etc/init.d/.
+cp btsync.conf ~/.btsync/.
 chmod 755 /etc/init.d/btsync
 update-rc.d btsync defaults
 /etc/init.d/btsync start
