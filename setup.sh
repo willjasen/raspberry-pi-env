@@ -1,9 +1,21 @@
 #!/bin/bash
 
+# Gather user input
 echo -n "Enter Git username: "
 read git_username
 echo -n "Enter Git user email: "
 read git_user_email
+
+# Setup USB drive with ext4 format
+#
+# umount /dev/sda1
+# fdisk /dev/sda1
+# (option n for new partition)
+# (option p to create a primary partition)
+# (option w to save the changes)
+# mkfs.ext4 /dev/sda1
+# mkdir /mnt/usb
+# mount /dev/sda1 /mnt/usb
 
 # Update available packages
 sudo apt-get -y update
