@@ -21,6 +21,8 @@ read git_user_email
 mkdir ~/.btsync && cd ~/.btsync
 wget https://download-cdn.getsync.com/stable/linux-arm/BitTorrent-Sync_arm.tar.gz
 tar -xfv BitTorrent-Sync_arm.tar.gz
+chmod 755 /etc/init.d/btsync
+sudo update-rc.d btsync defaults
 
 # Update available packages
 sudo apt-get -y update
