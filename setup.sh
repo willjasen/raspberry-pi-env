@@ -24,8 +24,8 @@ tar xfv ~/.btsync/BitTorrent-Sync_arm.tar.gz
 sudo cp btsync /etc/init.d
 cp btsync.conf ~/.btsync
 sudo chmod 755 /etc/init.d/btsync
-update-rc.d btsync defaults
-/etc/init.d/btsync start
+sudo update-rc.d btsync defaults
+sudo /etc/init.d/btsync start
 
 # Update available packages
 sudo apt-get -y update
