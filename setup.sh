@@ -6,6 +6,9 @@ read git_username
 echo -n "Enter Git user email: "
 read git_user_email
 
+# Prevent perl warnings with new Raspberry Pi's
+export LC_ALL=C
+
 # Setup USB drive with ext4 format
 #
 # umount /dev/sda1
