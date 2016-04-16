@@ -19,6 +19,8 @@ export LC_ALL=C
 # mkfs.ext4 /dev/sda1
 # mkdir /mnt/usb
 # mount /dev/sda1 /mnt/usb
+#
+# (insert into /etc/fstab) /dev/sda1	/media/sync	ext4	defaults	0	0
 
 # Install and run BitTorrent Sync
 mkdir ~/.btsync
