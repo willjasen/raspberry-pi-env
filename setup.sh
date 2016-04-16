@@ -28,7 +28,7 @@ sudo cp btsync /etc/init.d
 cp btsync.conf ~/.btsync
 sudo chmod 755 /etc/init.d/btsync
 sudo update-rc.d btsync defaults
-sudo /etc/init.d/btsync start
+sudo service btsync start
 
 # Update available packages
 sudo apt-get -y update
