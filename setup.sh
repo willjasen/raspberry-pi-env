@@ -22,6 +22,11 @@ export LC_ALL=C
 #
 # (insert into /etc/fstab) /dev/sda1	/media/sync	ext4	defaults	0	0
 
+# Setup 802.1q support
+sudo apt-get install vlan
+echo '8021q' | sudo tee /etc/modules
+
+
 # Install and run BitTorrent Sync
 mkdir ~/.btsync
 curl -o ~/.btsync/BitTorrent-Sync_arm.tar.gz https://download-cdn.getsync.com/stable/linux-arm/BitTorrent-Sync_arm.tar.gz
