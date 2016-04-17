@@ -25,7 +25,8 @@ export LC_ALL=C
 # Setup 802.1q support
 sudo apt-get install vlan
 echo '8021q' | sudo tee /etc/modules
-
+sudo modprobe 8021q
+sudo /etc/init.d/networking restart
 
 # Install and run BitTorrent Sync
 mkdir ~/.btsync
