@@ -42,6 +42,7 @@ export LC_ALL=C
 sudo apt-get -y update
 
 # Install needed packages
+echo "Installing packages.."
 sudo apt-get git
 # sudo apt-get install -y git curl zlib1g-dev
 # sudo apt-get install -y openssl libreadline6-dev git-core zlib1g libssl-dev
@@ -59,6 +60,7 @@ sudo apt-get git
 # gem install execjs
 
 # Configure git
+echo "Setting up git.."
 git config --global color.ui true
 git config --global user.name $git_username
 git config --global user.email $git_user_email
