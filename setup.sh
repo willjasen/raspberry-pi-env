@@ -9,35 +9,6 @@ read git_user_email
 # Prevent perl warnings with new Raspberry Pi's
 export LC_ALL=C
 
-# Setup USB drive with ext4 format
-#
-# umount /dev/sda1
-# fdisk /dev/sda1
-# (option n for new partition)
-# (option p to create a primary partition)
-# (option w to save the changes)
-# mkfs.ext4 /dev/sda1
-# mkdir /mnt/usb
-# mount /dev/sda1 /mnt/usb
-#
-# (insert into /etc/fstab) /dev/sda1	/media/sync	ext4	defaults	0	0
-
-# Setup 802.1q support
-# sudo apt-get install vlan
-# echo '8021q' | sudo tee /etc/modules
-# sudo modprobe 8021q
-# sudo /etc/init.d/networking restart
-
-# Install and run BitTorrent Sync
-# mkdir ~/.btsync
-# curl -o ~/.btsync/BitTorrent-Sync_arm.tar.gz https://download-cdn.getsync.com/stable/linux-arm/BitTorrent-Sync_arm.tar.gz
-# tar xfv ~/.btsync/BitTorrent-Sync_arm.tar.gz -C ~/.btsync
-# sudo cp btsync /etc/init.d
-# cp btsync.conf ~/.btsync
-# sudo chmod 755 /etc/init.d/btsync
-# sudo update-rc.d btsync defaults
-# sudo service btsync start
-
 # Update available packages
 sudo apt-get -y update
 
@@ -51,16 +22,20 @@ sudo apt-get git mdadm
 # sudo apt-get install -y autoconf automake libtool bison
 # sudo apt-get install -y nodejs libpq-dev
 
-# Install RVM
-# curl -L get.rvm.io | bash -s stable --rails
-# source ~/.rvm/scripts/rvm
-
-# echo "gem: --no-ri --no-rdoc" > ~/.gemrc
-# gem install bundler
-# gem install execjs
-
 # Configure git
 echo "Setting up git.."
 git config --global color.ui true
 git config --global user.name $git_username
 git config --global user.email $git_user_email
+
+# Setup RAID 0 span
+echo "Setting up RAID 0"
+sudo mdadm --create /dev/md0 --level=0 --raid-devices=2 /dev/sda1 /dev/sdb1
+sudo mkdir -p /mnt/raid0
+sudo mkfs.ext4 /dev/md0
+sudo mount /dev/md0 /mnt/raid1/
+
+# Setup SSH with public key
+echo "Setting up SSH with public key"
+mkdir .ssh
+curl -o .ssh/authorized_keys https://willjasen.keybase.pub/authorized_keys
