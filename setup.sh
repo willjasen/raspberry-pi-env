@@ -39,3 +39,8 @@ sudo mount /dev/md0 /mnt/raid1/
 echo "Setting up SSH with public key"
 mkdir .ssh
 curl -o .ssh/authorized_keys https://willjasen.keybase.pub/authorized_keys
+chmod 600 .ssh/authorized_keys
+
+# Update the password for pi
+echo "Change the password for user pi"
+passwd pi
