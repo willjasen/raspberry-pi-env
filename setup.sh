@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Gather user input
-echo -n "Enter Git username: "
-read git_username
-echo -n "Enter Git user email: "
-read git_user_email
+# echo -n "Enter Git username: "
+# read git_username
+# echo -n "Enter Git user email: "
+# read git_user_email
 
 # Prevent perl warnings with new Raspberry Pi's
 export LC_ALL=C
@@ -25,8 +25,8 @@ sudo apt-get git mdadm
 # Configure git
 echo "Setting up git.."
 git config --global color.ui true
-git config --global user.name $git_username
-git config --global user.email $git_user_email
+git config --global user.name willjasen
+git config --global user.email willjasen@gmail.com
 
 # Setup RAID 0 span
 echo "Setting up RAID 0"
