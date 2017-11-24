@@ -43,7 +43,7 @@ sudo apt-get -y update
 
 # Install needed packages
 echo "Installing packages.."
-sudo apt-get git
+sudo apt-get git mdadm
 # sudo apt-get install -y git curl zlib1g-dev
 # sudo apt-get install -y openssl libreadline6-dev git-core zlib1g libssl-dev
 # sudo apt-get install -y libyaml-dev libsqlite3-dev sqlite3 postgresql
