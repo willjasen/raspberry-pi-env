@@ -14,7 +14,7 @@ sudo apt-get -y update
 
 # Install needed packages
 echo "Installing packages.."
-sudo apt-get git mdadm cryptsetup
+sudo apt-get install git mdadm cryptsetup
 
 # Configure git
 echo "Setting up git.."
