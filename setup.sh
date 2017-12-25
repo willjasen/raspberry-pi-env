@@ -26,7 +26,6 @@ git config --global user.email willjasen@gmail.com
 echo "Setting up encrypted RAID 0 as /mnt/secure"
 sudo mdadm --create /dev/md0 --level=0 --raid-devices=2 /dev/sda1 /dev/sdb1
 sudo mkdir -p /mnt/md0
-sudo mkfs.ext4 /dev/md0
 sudo modprobe dm-crypt sha256 aes
 sudo cryptsetup --verify-passphrase luksFormat /dev/md0 -c aes -s 256 -h sha256
 sudo cryptsetup luksOpen /dev/md0 raid0
