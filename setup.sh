@@ -37,7 +37,7 @@ df -h | grep /mnt/secure
 
 # Setup SSH with public key
 echo "Setting up SSH with public key"
-mkdir ~/.ssh
+mkdir -p ~/.ssh
 curl -o ~/.ssh/authorized_keys https://willjasen.keybase.pub/authorized_keys
 chmod 600 ~/.ssh/authorized_keys
 
